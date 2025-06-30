@@ -97,8 +97,13 @@ curl -X POST "https://admin-api.owempay.com.br/api/owempay/client/accounts" \
     "operationExternalId": "SLNA8N16SE71",
     "name": "Jean Carlos Monteiro",
     "cpfCnpj": "11144477735",
-    "pixKeyType": 4
-  }'
+    "pixKeyType": 0,
+    "pixKey": "11144477735",
+    "agency": "200",
+    "accountNumber": "10002151400",
+    "accountType": 0,
+    "personType": 0
+}'
 ```
 
 ### Para Pessoa Jurídica (CNPJ)
@@ -110,9 +115,14 @@ curl -X POST "https://admin-api.owempay.com.br/api/owempay/client/accounts" \
     "operationExternalId": "SLNA8N16SE71",
     "name": "Empresa Exemplo LTDA",
     "cpfCnpj": "12345678000199",
-    "fantasyName": "Exemplo Corp",
-    "pixKeyType": 4
-  }'
+    "fantasyName": "Exemplo Cor",
+    "pixKeyType": 1,
+    "pixKey": "12345678000199",
+    "agency": "200",
+    "accountNumber": "10005586442",
+    "accountType": 0,
+    "personType": 1
+}'
 ```
 
 ---

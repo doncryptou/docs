@@ -50,7 +50,10 @@ Authorization: Bearer SEU_TOKEN_AQUI
   "cpfCnpj": "37839059000188", // CPF ou CNPJ **SEM máscara**
   "pixKeyType": 1, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
   "pixKey": "37839059000188", // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
+  "agency": "200", // Agência bancária sempre 200
+  "accountNumber": "10002151400", // Começa com 100 e depois 8 dígitos
   "accountType": 0, // 0 = corrente, 1 = poupança
+  "personType": 1 // 0 = Pessoa Física, 1 = Pessoa Jurídica
 }
 ```
 
@@ -67,7 +70,10 @@ Authorization: Bearer SEU_TOKEN_AQUI
 | `fantasyName` | string | - | Nome fantasia (preenchido automaticamente para CNPJ) |
 | `pixKeyType` | number | 1 | Tipo da chave PIX (0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória) |
 | `pixKey` | string | auto-gerado | Valor da chave PIX (para tipo aleatória, não é necessário pois a api gera uma chave aleatória automaticamente) |
+| `agency` | string | "200" | Agência bancária |
+| `accountNumber` | string | auto-gerado | Número da conta (Começa com 100 e depois 8 dígitos) |
 | `accountType` | number | 0 | Tipo da conta (0 = corrente, 1 = poupança) |
+| `personType` | number | 1 | Tipo de pessoa (0 = Pessoa Física, 1 = Pessoa Jurídica) |
 
 ### Tipos de Chave PIX
 | Código | Tipo | Descrição |
@@ -91,8 +97,13 @@ curl -X POST "https://admin-api.owempay.com.br/api/owempay/client/accounts" \
     "operationExternalId": "SLNA8N16SE71",
     "name": "Jean Carlos Monteiro",
     "cpfCnpj": "11144477735",
-    "pixKeyType": 4
-  }'
+    "pixKeyType": 0,
+    "pixKey": "11144477735",
+    "agency": "200",
+    "accountNumber": "10002151400",
+    "accountType": 0,
+    "personType": 0
+}'
 ```
 
 ### Para Pessoa Jurídica (CNPJ)
@@ -104,9 +115,14 @@ curl -X POST "https://admin-api.owempay.com.br/api/owempay/client/accounts" \
     "operationExternalId": "SLNA8N16SE71",
     "name": "Empresa Exemplo LTDA",
     "cpfCnpj": "12345678000199",
-    "fantasyName": "Exemplo Corp",
-    "pixKeyType": 4
-  }'
+    "fantasyName": "Exemplo Cor",
+    "pixKeyType": 1,
+    "pixKey": "12345678000199",
+    "agency": "200",
+    "accountNumber": "10005586442",
+    "accountType": 0,
+    "personType": 1
+}'
 ```
 
 ---
@@ -312,7 +328,10 @@ async function criarContaPIX(dadosConta) {
         cpfCnpj: dadosConta.documento, // CPF ou CNPJ **SEM máscara**
         pixKeyType: 1, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
         pixKey: '37839059000188', // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
+        agency: '200', // Agência bancária sempre 200
+        accountNumber: '10002151400', // Começa com 100 e depois 8 dígitos
         accountType: 0, // 0 = corrente, 1 = poupança
+        personType: 1 // 0 = Pessoa Física, 1 = Pessoa Jurídica
       })
     });
 
@@ -343,7 +362,10 @@ criarContaPIX({
   documento: '11144477735', // CPF ou CNPJ **SEM máscara**
   pixKeyType: 0, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
   pixKey: '11144477735', // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
+  agency: '200', // Agência bancária sempre 200
+  accountNumber: '10002151400', // Começa com 100 e depois 8 dígitos
   accountType: 0, // 0 = corrente, 1 = poupança
+  personType: 0 // 0 = Pessoa Física, 1 = Pessoa Jurídica
 });
 ```
 

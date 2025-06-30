@@ -64,7 +64,7 @@ Authorization: Bearer SEU_TOKEN_AQUI
 | `name` | string | Nome da pessoa física ou razão social da empresa |
 | `cpfCnpj` | string | CPF (11 dígitos) ou CNPJ (14 dígitos) **SEM máscara** |
 
-### Campos Opcionais
+### Outros Campos Obrigatórios
 | Campo | Tipo | Padrão | Descrição |
 |-------|------|--------|-----------|
 | `fantasyName` | string | - | Nome fantasia (preenchido automaticamente para CNPJ) |

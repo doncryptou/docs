@@ -51,7 +51,6 @@ Authorization: Bearer SEU_TOKEN_AQUI
   "pixKeyType": 1, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
   "pixKey": "37839059000188", // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
   "accountType": 0, // 0 = corrente, 1 = poupança
-  "personType": 1 // 0 = Pessoa Física, 1 = Pessoa Jurídica
 }
 ```
 
@@ -69,7 +68,6 @@ Authorization: Bearer SEU_TOKEN_AQUI
 | `pixKeyType` | number | 1 | Tipo da chave PIX (0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória) |
 | `pixKey` | string | auto-gerado | Valor da chave PIX (para tipo aleatória, não é necessário pois a api gera uma chave aleatória automaticamente) |
 | `accountType` | number | 0 | Tipo da conta (0 = corrente, 1 = poupança) |
-| `personType` | number | 1 | Tipo de pessoa (0 = Pessoa Física, 1 = Pessoa Jurídica) |
 
 ### Tipos de Chave PIX
 | Código | Tipo | Descrição |
@@ -315,7 +313,6 @@ async function criarContaPIX(dadosConta) {
         pixKeyType: 1, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
         pixKey: '37839059000188', // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
         accountType: 0, // 0 = corrente, 1 = poupança
-        personType: 1 // 0 = Pessoa Física, 1 = Pessoa Jurídica
       })
     });
 
@@ -347,7 +344,6 @@ criarContaPIX({
   pixKeyType: 0, // 0=CPF, 1=CNPJ, 2=Email, 3=Telefone, 4=Aleatória
   pixKey: '11144477735', // Valor da chave PIX (para tipo aleatório, não é necessário pois a api gera uma chave aleatória automaticamente)
   accountType: 0, // 0 = corrente, 1 = poupança
-  personType: 0 // 0 = Pessoa Física, 1 = Pessoa Jurídica
 });
 ```
 
